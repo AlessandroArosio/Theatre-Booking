@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th:="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports</title>
+</head>
+<body>
+    <h1>Reports</h1>
+
+    <form action="/reports/getReport" method="GET">
+        <select name="report" id="report">
+            <option th:each="report : ${reports}" th:value="${report}" th:text="${report}"></option>
+        </select>
+        <input type="submit" value="get" />
+    </form>
+
+    <div th:if="${result}">
+        <h2>Report</h2>
+        <div th:utext="${result}"></div>
+    </div>
+
+</body>
+</html>
